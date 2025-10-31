@@ -94,13 +94,19 @@ export class DrinkComponent {
   edit(drink:any) {
     console.log(drink)
 
-    this.drinkForm.value = {
-      id: drink.id 
-       
-    }
+    // this.drinkForm.value = {
+    //   id: drink.id ,
+    //    drink: drink.drink,
+    //    amount: drink.amount,
+    //    price : drink.price,
+    //    type: drink.type,
+    //    package: drink.package
+    // }
+    this.drinkForm.patchValue(drink)
+    this.addMode = false;
 
     this.addMode=false;
-
+    
 
   }
 
