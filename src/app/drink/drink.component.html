@@ -2,7 +2,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary mb-2" 
-data-bs-toggle="modal" data-bs-target="#operationModal">
+data-bs-toggle="modal" data-bs-target="#operationModal" (click)="setMode()">
   Hozzáad
 </button>
 
@@ -28,7 +28,7 @@ data-bs-toggle="modal" data-bs-target="#operationModal">
                 <td>{{drink.type}}</td>
                 <td>{{drink.package}}</td>
                 <td>
-                    <button class="btn btn-secondary me-2 mb-2" (click)="edit(drink)">
+                    <button class="btn btn-secondary me-2 mb-2" (click)="edit(drink)" data-bs-toggle="modal" data-bs-target="#operationModal">
                         Módosít
                     </button>
 

@@ -40,9 +40,21 @@ export class DrinkComponent {
     });
   }
 
+  setMode() {
+    this.addMode = true;
+  }
+
   save() {
     console.log('Mentés...')
-    this.drinkApi.createDrink$(this.drinkForm.value).subscribe({
+   if(this.addMode){
+    this.createDrink();
+   } else{
+    this.updateDrink();
+   }
+  }
+
+  createDrink() {
+     this.drinkApi.createDrink$(this.drinkForm.value).subscribe({
       next: (result) => {
         console.log(result);
         this.drinkForm.reset();
@@ -82,10 +94,19 @@ export class DrinkComponent {
   edit(drink:any) {
     console.log(drink)
 
+    this.drinkForm.value = {
+      id: drink.id 
+      
+    }
+
+    this.addMode=false;
+
+
   }
 
-  update(){
-
+  updateDrink(){
+    console.log("Update arnyékeljárás...")
+    this.addMode = true;
   }
 
   delete(id:number){
