@@ -15,6 +15,7 @@ data-bs-toggle="modal" data-bs-target="#operationModal">
             <th>Ár</th>
             <th>Típus</th>
             <th>Csomagolás</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,15 @@ data-bs-toggle="modal" data-bs-target="#operationModal">
                 <td>{{drink.price}}</td>
                 <td>{{drink.type}}</td>
                 <td>{{drink.package}}</td>
+                <td>
+                    <button class="btn btn-secondary me-2 mb-2" (click)="edit(drink)">
+                        Módosít
+                    </button>
+
+                    <button class="btn btn-danger mb-2" (click)="delete(drink.id)">
+                        Töröl
+                    </button>
+                </td>
             </tr>
         }
     </tbody>
@@ -78,16 +88,37 @@ data-bs-toggle="modal" data-bs-target="#operationModal">
                 <input type="text" id="price"
                 formControlName="price" class="form-control">
             </div>
-            <div class="input">
+            <!-- <div class="input">
                 <label for="type" class="form-label">Típus</label>
                 <input type="text" id="type"
                 formControlName="type" class="form-control">
-            </div>
+            </div> -->
             <div class="input">
+                <label for="type" class="form-label">Típus</label>
+                <select id="" formControlName="type" class="form-control">
+                    @for(type of types; track type.id){
+                        <option value="{{type.type}}">{{type.type}}</option>
+                    }
+
+                </select>
+                
+                </div>
+            <!-- <div class="input">
                 <label for="package" class="form-label">Csomagolás</label>
                 <input type="text" id="package"
                 formControlName="package" class="form-control">
-            </div>
+            </div> -->
+            
+             <div class="input">
+                <label for="package" class="form-label">Csomagolás</label>
+                 <select id="" formControlName="package" class="form-select">
+                    @for (package of packages; track package.id) {
+                        <option value="{{package.package}}">{{package.package}}</option>
+                    }
+
+                 </select>
+
+             </div>
 
         </form>
 

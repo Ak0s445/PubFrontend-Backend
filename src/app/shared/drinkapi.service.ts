@@ -16,4 +16,16 @@ export class DrinkapiService {
     const url = 'http://localhost:8000/api/newdrink';
     return this.http.post(url, drink)
   }
+  updateDrink$(drink:any) {
+    const url = 'http://localhost:8000/api/updatedrink/' + drink.id;
+    return this.http.put(url,drink);
+  }
+
+  deleteDrink$(id:number){
+    const url = 'http://localhost:8000/api/deletedrink/' + id;
+    return this.http.delete(url);
+
+  }
 }
+
+
